@@ -21,4 +21,13 @@ export class UsersController {
     async deleteUser(@Param('id') id: string): Promise<void> {
       return this.usersService.deleteUser(id);
     }
+
+    @Put(':id')
+    updateUser(
+      @Param('id') id: string,
+      @Body() updateUserDto: UpdateUserDto,
+    ): Promise<User> {
+      return this.usersService.updateUser(id, updateUserDto);
+    }
+
 }
